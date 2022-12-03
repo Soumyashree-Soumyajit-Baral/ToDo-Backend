@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO TASK</title>
+    
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            background-color: greenyellow;
+            border: 1px solid black;
+        }
+        div h1{
+            display: flex;
+            justify-content: center;
+        }
+        h1{
+            border: 1px solid black;
+            background-color: aqua;
+        }
+        .bold{
+            font-weight: bold;
+            padding: 10px;
+        }
+        span{
+            font-weight: bold;
+            margin-left: 30px;
+            /* border: 1px solid grey; */
+            color: rgb(20, 83, 220);
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h1>All Tasks with Sub-Tasks</h1>
+    </div>
+    <div class="container">
+        <ol>
+        <% for(let i=0;i<taskdata.length;i++){ %>
+                <li class="bold"><%=taskdata[i].maintask %><span><%=taskdata[i].status %></span></li>
+                <ul>
+                    <% for(let j=0;j<taskdata[i].subtasks.length;j++){ %>
+                        <li><%=taskdata[i].subtasks[j] %> </li>
+                    <% } %>
+                </ul>
+         <% } %>  
+        </ol>
+    </div>
+</body>
+</html>
